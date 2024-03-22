@@ -6,6 +6,13 @@ const roomInput = document.getElementById("room-input");
 const form = document.getElementById("form");
 
 const socket = io("http://localhost:3000");
+const userSocket = io("http://localhost:3000/user", {
+  auth: { token: "Test" },
+});
+
+userSocket.on("connect_error", (error) => {
+  displayMessage(error);
+});
 
 socket.on("connect", () => {
   displayMessage(`You connected with ID: ${socket.id}`);
