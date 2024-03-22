@@ -49,7 +49,7 @@ function displayMessage(message) {
 
 let count = 0;
 setInterval(() => {
-  socket.emit("ping", ++count);
+  socket.volatile.emit("ping", ++count);
 }, 1000);
 
 document.addEventListener("keydown", (e) => {
