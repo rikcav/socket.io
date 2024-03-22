@@ -13,7 +13,8 @@ io.on("connection", (socket) => {
     }
   });
 
-  socket.on("join-room", (room) => {
+  socket.on("join-room", (room, callback) => {
     socket.join(room);
+    callback(`Joined ${room}`);
   });
 });
