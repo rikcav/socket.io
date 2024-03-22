@@ -38,6 +38,10 @@ io.on("connection", (socket) => {
     socket.join(room);
     callback(`Joined ${room}`);
   });
+
+  socket.on("ping", (num) => {
+    console.log(num);
+  });
 });
 
 instrument(io, { auth: false });
